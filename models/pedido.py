@@ -1,6 +1,7 @@
 import enum
 from sqlalchemy import Column, DateTime, Enum, Integer, Numeric, String, func
 
+from config.banco import Base
 
 class StatusPedido(str, enum.Enum):
     CRIADO = "CRIADO"
@@ -9,7 +10,7 @@ class StatusPedido(str, enum.Enum):
     EM_ANDAMENTO = "EM ANDAMENTO"
 
 
-class Pedido():
+class Pedido(Base):
     __tablename__ = "pedidos"
 
     id = Column(Integer, primary_key=True, index=True)
